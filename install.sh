@@ -25,19 +25,16 @@ if confirm "Back up existing dotfiles? (y/n)"; then
     [ -f "$HOME/.$DOTFILE" ] && mv "$HOME/.$DOTFILE" "$BACKUPS"
   done
 
-  [ -d ~/.vim ] && mv ~/.vim "$BACKUPS"
   [ -d ~/system ] && mv ~/system "$BACKUPS"
+  [ -d ~/.vim ] && mv ~/.vim "$BACKUPS"
 fi
 
 if confirm "Link new dotfiles? (y/n)"; then
+  for DOTFILE in $DOTFILES_DIR/{git,ruby,runcom}/.*
+  do
+    [ -f "$DOTFILE" ] && ln -sf "$DOTFILE" ~
+  done
+
   ln -sf "$DOTFILES_DIR/system/" ~
-  ln -sf "$DOTFILES_DIR/.bash_profile" ~
-  ln -sf "$DOTFILES_DIR/git/.git-completion.bash" ~
-  ln -sf "$DOTFILES_DIR/git/.gitconfig" ~
-  ln -sf "$DOTFILES_DIR/git/.gitignore_global" ~
-  ln -sf "$DOTFILES_DIR/rc/.jshintrc" ~
-  ln -sf "$DOTFILES_DIR/rc/.railsrc" ~
-  ln -sf "$DOTFILES_DIR/ruby/.rspec" ~
-  ln -sf "$DOTFILES_DIR/ruby/.ruby-version" ~
   ln -sf "$DOTFILES_DIR/vim/.vimrc" ~
 fi
