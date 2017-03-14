@@ -1,9 +1,4 @@
-prepend-path() {
-  [ -d $1 ] && PATH="$1:$PATH"
-}
-
 confirm() {
-    # call with a prompt string or use a default
     read -r -p "${1:-Are you sure? [y/N]} " response
     case "$response" in
         [yY][eE][sS]|[yY])
@@ -15,17 +10,6 @@ confirm() {
     esac
 }
 
-function cd () { builtin cd "$@" && ls; }
-
-function mcd () { mkdir -p "$@" && eval cd "\"\$$#\""; };
-
-function git () {
-  if [[ "$@" = "add -A" ]]; then
-    echo "Please avoid adding all files at once!"
-    if confirm "Are you sure you want to add EVERYTHING? (y/n)"; then
-      command git "$@"
-    fi
-  else
-    command git "$@"
-  fi
-}
+cd() { builtin cd "$@" && ls; }
+mcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
+prepend-path() { [ -d $1 ] && PATH="$1:$PATH"; }
