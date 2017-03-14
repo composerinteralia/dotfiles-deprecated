@@ -1,0 +1,4 @@
+DIRECTORY_YELLOW="\033[33;1m\]\W\[\033[m\]"
+BRANCH="\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)"
+BRANCH_BLUE="\[\033[36m\]$BRANCH\[\033[m\]"
+export PS1="$DIRECTORY_YELLOW:$BRANCH_BLUE > "

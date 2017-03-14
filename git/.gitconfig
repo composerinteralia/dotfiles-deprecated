@@ -1,0 +1,13 @@
+[user]
+	name = Daniel Colson
+	email = danieljamescolson@gmail.com
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	amend = commit --amend
+	co = checkout
+	find = log -S
+	unstage = reset HEAD
