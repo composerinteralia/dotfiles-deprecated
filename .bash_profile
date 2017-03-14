@@ -1,4 +1,4 @@
-for DOTFILE in system/.{function,path,env,alias,prompt}
+for DOTFILE in $HOME/system/.{function,path,env,alias,prompt}
 do
-  [ -f "$DOTFILE" ] && source "$HOME/$DOTFILE"
+  [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
