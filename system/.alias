@@ -1,11 +1,3 @@
-[ -f ~/.git-completion.bash ] && . ~/.git-completion.bash
-__git_complete g __git_main
-__git_complete gb _git_branch
-__git_complete gd _git_diff
-__git_complete gm _git_merge
-__git_complete gp _git_push
-__git_complete co _git_checkout
-
 alias ..='cd ..'
 alias a='atom'
 alias a.='atom .'
