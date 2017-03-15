@@ -1,0 +1,5 @@
+# Case insensitive Tab autocomplete
+set completion-ignore-case on
+
+# Shift+Tab through matches
+"\e[Z": menu-complete

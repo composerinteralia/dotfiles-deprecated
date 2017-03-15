@@ -13,6 +13,7 @@ if confirm "Back up existing dotfiles? (y/n)"; then
     git-completion.bash
     gitconfig
     gitignore_global
+    inputrc
     jshintrc
     railsrc
     ruby-version
