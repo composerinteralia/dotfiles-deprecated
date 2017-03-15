@@ -1,6 +1,6 @@
 confirm() {
-    read -r -p "${1:-Are you sure? [y/N]} " response
-    case "$response" in
+    read -r -p "${1:-Are you sure? [y/N]} " RESPONSE
+    case "$RESPONSE" in
         [yY][eE][sS]|[yY])
             true
             ;;

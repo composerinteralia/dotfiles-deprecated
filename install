@@ -21,8 +21,7 @@ if confirm "Back up existing dotfiles? (y/n)"; then
     vimrc
   "
 
-  for DOTFILE in $FILES
-  do
+  for DOTFILE in $FILES; do
     [ -f "$HOME/.$DOTFILE" ] && mv "$HOME/.$DOTFILE" "$BACKUPS"
   done
 
@@ -31,8 +30,7 @@ if confirm "Back up existing dotfiles? (y/n)"; then
 fi
 
 if confirm "Link new dotfiles? (y/n)"; then
-  for DOTFILE in $DOTFILES_DIR/{git,ruby,runcom}/.*
-  do
+  for DOTFILE in $DOTFILES_DIR/{git,ruby,runcom}/.*; do
     [ -f "$DOTFILE" ] && ln -sf "$DOTFILE" ~
   done
 
