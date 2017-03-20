@@ -1,15 +1,23 @@
-:syntax on
+:filetype plugin on
+
+:syntax enable
 
 :set expandtab shiftwidth=2 tabstop=2
 :set history=50
 :set hlsearch incsearch
-:set mouse=a
+:set nocompatible
 :set number
+:set path+=**
 :set ruler
 :set showcmd
+:set wildignore+=*/node_modules/*
+:set wildmenu
 
 :cnoremap jk <ESC>
-:inoremap jk <ESC>:w<cr>
+:inoremap jk <ESC>:w<CR>
 
-:noremap ss :w<cr>
-:inoremap ss <ESC>:w<cr>
+:nnoremap ss :w<CR>
+
+:nnoremap ,html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
+
+command MakeTags !ctags -R --exclude=.git --exclude=node_modules
