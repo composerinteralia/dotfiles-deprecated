@@ -1,4 +1,4 @@
-:filetype plugin on
+:filetype plugin indent on
 
 :syntax enable
 
@@ -10,11 +10,19 @@
 :set path+=**
 :set ruler
 :set showcmd
-:set wildignore+=*/node_modules/*
+:set wildignore+=**/coverage/*
+:set wildignore+=**/log/*
+:set wildignore+=**/node_modules/*
+:set wildignore+=**/tmp/*
 :set wildmenu
 
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 :cnoremap jk <ESC>
-:inoremap jk <ESC>:w<CR>
+:inoremap jk <ESC>
 
 :nnoremap ss :w<CR>
 
