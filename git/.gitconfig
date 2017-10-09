@@ -11,3 +11,6 @@
 	co = checkout
 	find = log -S
 	unstage = reset HEAD
+
+[diff]
+  tool = vimdiff
