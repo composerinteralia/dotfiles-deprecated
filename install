@@ -38,5 +38,8 @@ if confirm "Link new dotfiles? (y/n)"; then
   ln -sf "$DOTFILES_DIR/system/" ~
   ln -sf "$DOTFILES_DIR/vim/.vimrc" ~
   mkdir ~/.vim
+  mkdir ~/.vim/bundle
   ln -sf "$DOTFILES_DIR/vim/templates" ~/.vim/templates
 fi
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

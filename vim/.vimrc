@@ -1,3 +1,12 @@
+" use Vundle to load plugins
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vimdle.vim'
+Plugin 'thoughtbot/vim-rspec'
+call vundle#end()
+
 " detect the file type and load plugin and index files
 :filetype plugin indent on
 
@@ -29,6 +38,8 @@
 :set wildignore+=**/node_modules/*
 :set wildignore+=**/tmp/*
 :set wildmenu
+
+:set dictionary=/usr/share/dict/words
 
 " What are arrow keys for?
 noremap <Up> <NOP>
@@ -63,3 +74,10 @@ command Mtags !ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --ex
 :nnoremap ,g 0f,a<CR><ESC>
 " Convert Ruby single-line do/end to {}
 :nnoremap ,e $FdC{<ESC>JA }<ESC>jdd
+
+" Run specs
+let g:rspec_command = "!bin/rspec {spec}"
+map ,c :call RunCurrentSpecFile()<CR>
+map ,s :call RunNearestSpec()<CR>
+map ,l :call RunLastSpec()<CR>
+
