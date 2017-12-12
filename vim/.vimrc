@@ -8,40 +8,40 @@ Plugin 'thoughtbot/vim-rspec'
 call vundle#end()
 
 " detect the file type and load plugin and index files
-:filetype plugin indent on
+filetype plugin indent on
 
 " syntax highlighting
-:syntax enable
+syntax enable
 
 " Replace tabs with two spaces
-:set expandtab shiftwidth=2 tabstop=2
+set expandtab shiftwidth=2 tabstop=2
 
-:set history=500
+set history=500
 
 " start searching when I start typing and highlight
-:set hlsearch incsearch
+set hlsearch incsearch
 
 " shows relative numbers, but actual line number for the one I am on
-:set number
-:set relativenumber
+set number
+set relativenumber
 
 " shows line number and col number
-:set ruler
+set ruler
 
 " shows what commands I am typing
-:set showcmd
+set showcmd
 
 " For tab autocomplete
-:set path+=**
-:set wildignore+=**/coverage/*
-:set wildignore+=**/log/*
-:set wildignore+=**/node_modules/*
-:set wildignore+=**/tmp/*
-:set wildmenu
+set path+=**
+set wildignore+=**/coverage/*
+set wildignore+=**/log/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/tmp/*
+set wildmenu
 
-:set dictionary=/usr/share/dict/words
+set dictionary=/usr/share/dict/words
 
-" What are arrow keys for?
+" What arrow keys?
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -56,28 +56,30 @@ set splitbelow
 set splitright
 
 " CTags
-:nnoremap <C-I> :w<CR>:Mtags<CR><CR>
-command Mtags !ctags -R --exclude=.git --exclude=node_modules --exclude=tmp --exclude=log --exclude=coverage
+nnoremap <C-I> :w<CR>:Mtags<CR><CR>
+command Mtags !ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore
 
-:cnoremap jk <ESC>
-:inoremap jk <ESC>
+cnoremap jk <ESC>
+inoremap jk <ESC>
 
-:nnoremap ,html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
-:nnoremap ,rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
-:nnoremap ,rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
+let mapleader=","
+
+nnoremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
+nnoremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
+nnoremap <Leader>rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
 
 " Convert Ruby block from {} to do/end
-:nnoremap ,d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
+nnoremap <Leader>d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
 " Put arguments on next line
-:nnoremap ,f 0f(a<CR><ESC>k$%i<CR><ESC>k
+nnoremap <Leader>f 0f(a<CR><ESC>k$%i<CR><ESC>k
 " Newlines after commas
-:nnoremap ,g 0f,a<CR><ESC>
+nnoremap <Leader>g 0f<Leader>a<CR><ESC>
 " Convert Ruby single-line do/end to {}
-:nnoremap ,e $FdC{<ESC>JA }<ESC>jdd
+nnoremap <Leader>e $FdC{<ESC>JA }<ESC>jdd
 
 " Run specs
 let g:rspec_command = "!bin/rspec {spec}"
-map ,c :call RunCurrentSpecFile()<CR>
-map ,s :call RunNearestSpec()<CR>
-map ,l :call RunLastSpec()<CR>
+map <Leader>c :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
 
