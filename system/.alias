@@ -1,3 +1,8 @@
+alias ss='cd ~/Desktop/cf/SwipeSimple'
+alias cf='cd ~/Desktop/cf/cardflight-api'
+alias v2='cd ~/Desktop/cf/cardflight-api-v2'
+alias up='~/Desktop/scripts/start.rb'
+
 alias ..='cd ..'
 alias a='atom'
 alias a.='atom .'
