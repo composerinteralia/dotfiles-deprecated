@@ -16,23 +16,18 @@ filetype plugin indent on
 " syntax highlighting
 syntax enable
 
-" Replace tabs with two spaces
-set expandtab shiftwidth=2 tabstop=2
+set expandtab shiftwidth=2 tabstop=2 " Replace tabs with two spaces
 
-set history=500
+set hlsearch incsearch " start searching when I start typing and highlight
 
-" start searching when I start typing and highlight
-set hlsearch incsearch
-
-" shows relative numbers, but actual line number for the one I am on
-set number
-set relativenumber
-
-" shows line number and col number
-set ruler
-
-" shows what commands I am typing
-set showcmd
+set dictionary=/usr/share/dict/words
+set hidden                            " Allow buffer change without writing
+set history=1000                      " Remember 1000 commands
+set number                            " Show the line number I am on"
+set relativenumber                    " Show relative line numbers
+set ruler                             " Show line number and col number
+set scrolloff=4                       " Keep at least 4 lines above/below cursor
+set showcmd                           " Shows what commands I am typing
 
 " For tab autocomplete
 set path+=**
@@ -41,8 +36,6 @@ set wildignore+=**/log/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/tmp/*
 set wildmenu
-
-set dictionary=/usr/share/dict/words
 
 " What arrow keys?
 noremap <Up> <NOP>
@@ -59,13 +52,15 @@ set splitbelow
 set splitright
 
 " Make it easier to get to first non-whitespace character on a line
-noremap 0 ^
+nnoremap 0 ^
 nnoremap ^ 0
 
-" CTags
-command Ctags !ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore
-
 let mapleader="\<Space>"
+
+nnoremap <leader>t :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
+
+nnoremap <leader>vr :vsp $MYVIMRC<cr>
+nnoremap <leader>so :source $MYVIMRC<cr>
 
 nnoremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
 nnoremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a

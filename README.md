@@ -10,8 +10,9 @@
   - [https://github.com/ryanb/dotfiles https://github.com/thoughtbot/dotfiles]()
   - [https://github.com/wcamarao/dotfiles/blob/master/model/vimrc]()
   - [https://github.com/carlbaron/dotfiles/]()
+  - [https://github.com/christoomey/dotfiles]()
+  - [https://github.com/r00k/dotfiles]()
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 ## Vim stuff
 * [A good vimrc](https://dougblack.io/words/a-good-vimrc.html)
 * [https://github.com/w1zeman1p/vim-curriculum]()
-* 
