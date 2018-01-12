@@ -7,6 +7,9 @@ Plugin 'VundleVim/Vimdle.vim'
 Plugin 'thoughtbot/vim-rspec'
 call vundle#end()
 
+" Allow % to find if/else/end pairs, and more
+runtime macros/matchit.vim
+
 " detect the file type and load plugin and index files
 filetype plugin indent on
 
@@ -55,14 +58,14 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" Make it easier to get to first non-whitespace character on a line
+noremap 0 ^
+nnoremap ^ 0
+
 " CTags
-nnoremap <C-I> :w<CR>:Mtags<CR><CR>
-command Mtags !ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore
+command Ctags !ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore
 
-cnoremap jk <ESC>
-inoremap jk <ESC>
-
-let mapleader=","
+let mapleader="\<Space>"
 
 nnoremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
 nnoremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
