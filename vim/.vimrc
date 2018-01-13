@@ -3,8 +3,9 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vimdle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 " Allow % to find if/else/end pairs, and more
