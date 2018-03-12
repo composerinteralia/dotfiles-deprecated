@@ -6,6 +6,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
@@ -20,6 +22,16 @@ filetype plugin indent on
 
 " syntax highlighting
 syntax enable
+
+" All the pretty colors
+set t_Co=256
+
+" Cursor Highlighting
+set cursorline
+set cursorcolumn
+highlight CursorLine cterm=NONE ctermbg=lightgray
+highlight CursorColumn cterm=NONE ctermbg=lightgray
+nmap <Leader>H :set cursorline! cursorcolumn!<CR>
 
 set expandtab shiftwidth=2 tabstop=2 " Replace tabs with two spaces
 
@@ -48,11 +60,6 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" For navigating between windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
