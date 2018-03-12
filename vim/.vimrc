@@ -6,6 +6,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 
 " Allow % to find if/else/end pairs, and more
@@ -58,23 +62,24 @@ nnoremap ^ 0
 
 let mapleader="\<Space>"
 
-nnoremap <leader>t :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
+nmap <leader>t :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
+nmap <leader>h :noh<cr>
 
-nnoremap <leader>vr :vsp $MYVIMRC<cr>
-nnoremap <leader>so :source $MYVIMRC<cr>
+nmap <leader>vr :vsp $MYVIMRC<cr>
+nmap <leader>so :source $MYVIMRC<cr>
 
-nnoremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
-nnoremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
-nnoremap <Leader>rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
+nmap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
+nmap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
+nmap <Leader>rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
 
 " Convert Ruby block from {} to do/end
-nnoremap <Leader>d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
+nmap <Leader>d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
 " Put arguments on next line
-nnoremap <Leader>f 0f(a<CR><ESC>k$%i<CR><ESC>k
+nmap <Leader>f 0f(a<CR><ESC>k$%i<CR><ESC>k
 " Newlines after commas
-nnoremap <Leader>g 0f<Leader>a<CR><ESC>
+nmap <Leader>g 0f<Leader>a<CR><ESC>
 " Convert Ruby single-line do/end to {}
-nnoremap <Leader>e $FdC{<ESC>JA }<ESC>jdd
+nmap <Leader>e $FdC{<ESC>JA }<ESC>jdd
 
 " Run specs
 let g:rspec_command = "!bin/rspec {spec}"
