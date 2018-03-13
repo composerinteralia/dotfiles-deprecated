@@ -7,6 +7,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
 
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -25,13 +26,6 @@ syntax enable
 
 " All the pretty colors
 set t_Co=256
-
-" Cursor Highlighting
-set cursorline
-set cursorcolumn
-highlight CursorLine cterm=NONE ctermbg=lightgray
-highlight CursorColumn cterm=NONE ctermbg=lightgray
-nmap <Leader>H :set cursorline! cursorcolumn!<CR>
 
 set expandtab shiftwidth=2 tabstop=2 " Replace tabs with two spaces
 
@@ -60,8 +54,21 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" automatically rebalance windows on resize
+autocmd VimResized * :wincom =
+
+" zooming a pane
+noremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+noremap <leader>= :wincmd =<cr>
+
+" reasonable default directions
 set splitbelow
 set splitright
+
+" Cursor Highlighting
+highlight CursorLine cterm=NONE ctermbg=lightgray
+highlight CursorColumn cterm=NONE ctermbg=lightgray
+noremap <Leader>H :set cursorline! cursorcolumn!<CR>
 
 " Make it easier to get to first non-whitespace character on a line
 nnoremap 0 ^
@@ -69,31 +76,37 @@ nnoremap ^ 0
 
 let mapleader="\<Space>"
 
-nmap <leader>t :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
-nmap <leader>h :noh<cr>
+noremap <leader>tags :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
 
-nmap <leader>vr :vsp $MYVIMRC<cr>
-nmap <leader>so :source $MYVIMRC<cr>
-
-nmap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
-nmap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
-nmap <Leader>rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
+noremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
+noremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
+noremap <Leader>rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
 
 " Convert Ruby block from {} to do/end
-nmap <Leader>d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
+noremap <Leader>d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
 " Put arguments on next line
-nmap <Leader>f 0f(a<CR><ESC>k$%i<CR><ESC>k
+noremap <Leader>f 0f(a<CR><ESC>k$%i<CR><ESC>k
 " Newlines after commas
-nmap <Leader>g 0f<Leader>a<CR><ESC>
+noremap <Leader>g 0f<Leader>a<CR><ESC>
 " Convert Ruby single-line do/end to {}
-nmap <Leader>e $FdC{<ESC>JA }<ESC>jdd
+noremap <Leader>e $FdC{<ESC>JA }<ESC>jdd
 
-" Run specs
-let g:rspec_command = "!bin/rspec {spec}"
-map <Leader>c :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
+" Run specs with vim-rspec
+let g:rspec_command = "VtrSendCommand be rspec {spec}"
+noremap <Leader>c :call RunCurrentSpecFile()<CR>
+noremap <Leader>s :call RunNearestSpec()<CR>
+noremap <Leader>l :call RunLastSpec()<CR>
+
+" tmux-runner
+noremap <leader>tap :VtrAttachToPane<cr>
+noremap <leader>tl :VtrSendLinesToRunner<cr>
+noremap <leader>tf :VtrFocusRunner<cr>
+noremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
 " Make CtrlP use ag for listing the files.
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+
+" Easily open and source vimrc
+noremap <leader>vr :vsp $MYVIMRC<cr>
+noremap <leader>so :source $MYVIMRC<cr>
