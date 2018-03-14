@@ -66,18 +66,18 @@ noremap <leader>= :wincmd =<cr>
 set splitbelow
 set splitright
 
-" Cursor Highlighting
-highlight CursorLine cterm=NONE ctermbg=lightgray
-highlight CursorColumn cterm=NONE ctermbg=lightgray
-noremap <Leader>H :set cursorline! cursorcolumn!<CR>
-
 " Make it easier to get to first non-whitespace character on a line
 nnoremap 0 ^
 nnoremap ^ 0
 
 let mapleader="\<Space>"
 
-noremap <leader>tags :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
+" Cursor Highlighting
+highlight CursorLine cterm=NONE ctermbg=lightgray
+highlight CursorColumn cterm=NONE ctermbg=lightgray
+noremap <Leader>H :set cursorline! cursorcolumn!<CR>
+
+noremap <leader>tag :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
 
 noremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
 noremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
