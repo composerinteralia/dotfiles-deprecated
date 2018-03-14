@@ -8,6 +8,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
+Plugin 'elixir-lang/vim-elixir'
 
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
