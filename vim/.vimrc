@@ -16,6 +16,8 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-commentary'
 call vundle#end()
 
+let mapleader="\<Space>"
+
 " Allow % to find if/else/end pairs, and more
 runtime macros/matchit.vim
 
@@ -56,7 +58,8 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " automatically rebalance windows on resize
-autocmd VimResized * :wincom =
+autocmd! VimResized
+autocmd VimResized * :wincmd =
 
 " zooming a pane
 noremap <leader>- :wincmd _<cr>:wincmd \|<cr>
@@ -69,8 +72,6 @@ set splitright
 " Make it easier to get to first non-whitespace character on a line
 nnoremap 0 ^
 nnoremap ^ 0
-
-let mapleader="\<Space>"
 
 " Cursor Highlighting
 highlight CursorLine cterm=NONE ctermbg=lightgray
@@ -102,7 +103,6 @@ noremap <Leader>l :call RunLastSpec()<CR>
 noremap <leader>tap :VtrAttachToPane<cr>
 noremap <leader>tl :VtrSendLinesToRunner<cr>
 noremap <leader>tf :VtrFocusRunner<cr>
-noremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
 " Make CtrlP use ag for listing the files.
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
