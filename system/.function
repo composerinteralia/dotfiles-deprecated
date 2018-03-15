@@ -14,11 +14,3 @@ cd() { builtin cd "$@" && ls; }
 mcd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 prepend-path() { [ -d $1 ] && PATH="$1:$PATH"; }
 
-_not_inside_tmux() { [[ -z "$TMUX" ]]; }
-ensure_tmux_is_running() {
-  if _not_inside_tmux; then
-    tat
-  fi
-}
-
-tat() { tmux attach -t $(basename $PWD) || tmux new -s $(basename $PWD); }

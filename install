@@ -9,16 +9,20 @@ if confirm "Back up existing dotfiles? (y/n)"; then
   mkdir "$BACKUPS"
 
   FILES="
+    agignore
     bash_profile
+    ctagsignore
+    eslintrc.json
     git-completion.bash
     gitconfig
     gitignore_global
+    iex.exs
     inputrc
     jshintrc
     railsrc
-    ruby-version
     rspec
-    vim
+    ruby-version
+    tmux.conf
     vimrc
   "
 
@@ -26,20 +30,21 @@ if confirm "Back up existing dotfiles? (y/n)"; then
     [ -f "$HOME/.$DOTFILE" ] && mv "$HOME/.$DOTFILE" "$BACKUPS"
   done
 
+  [ -d ~/bin ] && mv ~/bin "$BACKUPS"
   [ -d ~/system ] && mv ~/system "$BACKUPS"
   [ -d ~/.vim ] && mv ~/.vim "$BACKUPS"
+  [ -d ~/.tmux ] && mv ~/.tmux "$BACKUPS"
 fi
 
 if confirm "Link new dotfiles? (y/n)"; then
-  for DOTFILE in $DOTFILES_DIR/{git,ruby,elixir,runcom}/.*; do
+  for DOTFILE in $DOTFILES_DIR/{vim,git,ruby,elixir,js,runcom}/.*; do
     [ -f "$DOTFILE" ] && ln -sf "$DOTFILE" ~
   done
 
   ln -sf "$DOTFILES_DIR/system/" ~
-  ln -sf "$DOTFILES_DIR/vim/.vimrc" ~
+  ln -sf "$DOTFILES_DIR/bin/" ~
   mkdir ~/.vim
-  mkdir ~/.vim/bundle
-  ln -sf "$DOTFILES_DIR/vim/templates" ~/.vim/templates
+  ln -sf "$DOTFILES_DIR/vim/templates" ~/.vim
 fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
