@@ -33,7 +33,6 @@ if confirm "Back up existing dotfiles? (y/n)"; then
   [ -d ~/bin ] && mv ~/bin "$BACKUPS"
   [ -d ~/system ] && mv ~/system "$BACKUPS"
   [ -d ~/.vim ] && mv ~/.vim "$BACKUPS"
-  [ -d ~/.tmux ] && mv ~/.tmux "$BACKUPS"
 fi
 
 if confirm "Link new dotfiles? (y/n)"; then
@@ -48,4 +47,3 @@ if confirm "Link new dotfiles? (y/n)"; then
 fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
