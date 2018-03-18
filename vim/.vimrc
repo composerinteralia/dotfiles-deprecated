@@ -4,15 +4,26 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'ctrlpvim/ctrlp.vim'
+" Tmux
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
+" Elixir
 Plugin 'elixir-lang/vim-elixir'
-
+" Ruby
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'kana/vim-textobj-user'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-rails'
+" git
+Plugin 'tpope/vim-fugitive'
+" Etc
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-commentary'
 call vundle#end()
 
@@ -78,8 +89,6 @@ highlight CursorLine cterm=NONE ctermbg=lightgray
 highlight CursorColumn cterm=NONE ctermbg=lightgray
 noremap <Leader>H :set cursorline! cursorcolumn!<CR>
 
-noremap <leader>tag :!ctags -R --exclude=@$HOME/dotfiles/vim/.ctagsignore<cr>
-
 noremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
 noremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
 noremap <Leader>rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
@@ -89,7 +98,7 @@ noremap <Leader>d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
 " Put arguments on next line
 noremap <Leader>f 0f(a<CR><ESC>k$%i<CR><ESC>k
 " Newlines after commas
-noremap <Leader>g 0f<Leader>a<CR><ESC>
+noremap <Leader>g 0f,a<CR><ESC>
 " Convert Ruby single-line do/end to {}
 noremap <Leader>e $FdC{<ESC>JA }<ESC>jdd
 

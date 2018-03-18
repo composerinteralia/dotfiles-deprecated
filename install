@@ -40,6 +40,7 @@ if confirm "Link new dotfiles? (y/n)"; then
     [ -f "$DOTFILE" ] && ln -sf "$DOTFILE" ~
   done
 
+  ln -sf "$DOTFILES_DIR/git/.git_template" ~
   ln -sf "$DOTFILES_DIR/system/" ~
   ln -sf "$DOTFILES_DIR/bin/" ~
   mkdir ~/.vim
@@ -47,3 +48,4 @@ if confirm "Link new dotfiles? (y/n)"; then
 fi
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
