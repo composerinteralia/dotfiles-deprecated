@@ -25,6 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
 call vundle#end()
 
 let mapleader="\<Space>"
