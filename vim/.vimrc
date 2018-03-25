@@ -5,11 +5,18 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
+
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
+
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'thoughtbot/vim-rspec'
@@ -19,13 +26,10 @@ Plugin 'tpope/vim-rbenv'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-rails'
+
 " git
 Plugin 'tpope/vim-fugitive'
-" Etc
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-unimpaired'
+
 call vundle#end()
 
 let mapleader="\<Space>"
