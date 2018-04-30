@@ -98,6 +98,8 @@ noremap <Leader>html :-1read $HOME/.vim/templates/skeleton.html<CR>3jwf>a
 noremap <Leader>rspec :-1read $HOME/.vim/templates/skeleton.rspec<CR>f'a
 noremap <Leader>rfeature :-1read $HOME/.vim/templates/skeleton.feature<CR>f'a
 
+noremap <Leader>b orequire 'byebug'; debugger<ESC>
+
 " Convert Ruby block from {} to do/end
 noremap <Leader>d 0f{sdo<CR><ESC>oend<ESC>k0\|:s/\s*}$<CR>
 " Put arguments on next line
