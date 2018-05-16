@@ -9,6 +9,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'rking/ag.vim'
 
 " Tmux
 Plugin 'christoomey/vim-tmux-navigator'
