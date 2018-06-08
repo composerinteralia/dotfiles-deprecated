@@ -1,3 +1,5 @@
+**Deprecated in favor of https://github.com/composerinteralia/dotfiles-local**
+
 ## To Install:
   Clone the repo and run `./install`
 ## Other Resources:
